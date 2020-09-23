@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "296386443634",
+    "firebase_url": "https://outfit2.firebaseio.com",
+    "project_id": "outfit2",
+    "storage_bucket": "outfit2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:296386443634:android:9f3ca5a18371a2d950c5eb",
+        "android_client_info": {
+          "package_name": "com.outfit.user"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "296386443634-dghds6tbp1mht07j87ftde50nr1i2s2l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDReZ1zXEgJg6YwbMyAXB7y4H2XEZaW03U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "296386443634-dghds6tbp1mht07j87ftde50nr1i2s2l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
