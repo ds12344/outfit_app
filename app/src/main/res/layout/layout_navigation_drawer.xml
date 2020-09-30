@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="20dp">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/logo" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Home"
+        android:textSize="18sp"
+        android:drawableStart="@drawable/ic_home"
+        android:drawablePadding="10dp"
+        android:textColor="@color/colorPrimary"
+        android:drawableTint="@color/colorPrimary"
+        android:drawableLeft="@drawable/ic_home"
+        android:padding="15dp"
+        android:layout_marginTop="40dp"
+        android:id="@+id/txtHome"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="My Account"
+        android:drawableTint="@color/colorPrimary"
+        android:textSize="18sp"
+        android:drawableStart="@drawable/ic_profile"
+        android:drawablePadding="10dp"
+        android:textColor="@color/colorPrimary"
+        android:drawableLeft="@drawable/ic_home"
+        android:padding="15dp"
+        android:id="@+id/txtMyAccount"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="My Order"
+        android:drawableTint="@color/colorPrimary"
+        android:textSize="18sp"
+        android:drawableStart="@drawable/ic_order"
+        android:drawablePadding="10dp"
+        android:textColor="@color/colorPrimary"
+        android:drawableLeft="@drawable/ic_home"
+        android:padding="15dp"
+        android:id="@+id/txtMyOrder"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="My Cart"
+        android:drawableTint="@color/colorPrimary"
+        android:textSize="18sp"
+        android:drawableStart="@drawable/ic_cart"
+        android:drawablePadding="10dp"
+        android:textColor="@color/colorPrimary"
+        android:drawableLeft="@drawable/ic_home"
+        android:padding="15dp"
+        android:id="@+id/txtMyCart"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Become a seller"
+        android:drawableTint="@color/colorPrimary"
+        android:textSize="18sp"
+        android:drawableStart="@drawable/ic_store"
+        android:drawablePadding="10dp"
+        android:textColor="@color/colorPrimary"
+        android:drawableLeft="@drawable/ic_home"
+        android:padding="15dp"
+        android:id="@+id/txtBecomeSeller"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Logout"
+        android:drawableTint="@color/colorPrimary"
+        android:textSize="18sp"
+        android:drawableStart="@drawable/ic_logout"
+        android:drawablePadding="10dp"
+        android:textColor="@color/colorPrimary"
+        android:drawableLeft="@drawable/ic_home"
+        android:padding="15dp"
+        android:id="@+id/txtLogout"/>
+
+</LinearLayout>
