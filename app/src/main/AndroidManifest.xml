@@ -9,13 +9,29 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".layout_navigation_drawer"></activity>
+        <activity android:name=".seller.SellerProfileActivity" />
+        <activity android:name=".seller.SellerRegisterActivity" />
+        <activity android:name=".seller.SellerProductDetailActivity"/>
+        <activity android:name=".AddAddressActivity"/>
+        <activity android:name=".AddCardActivity" />
+        <activity android:name=".AddressListActivity"/>
+        <activity android:name=".CardListActivity" />
+
+        <activity android:name=".OrderDetailActivity" />
+        <activity android:name=".OrderListActivity" />
+        <activity android:name=".RatingActivity" />
+
+
+        <activity android:name=".CartActivity" />
+        <activity android:name=".AllProductActivity" />
+        <activity android:name=".ChooseShoppingGenderActivity" />
+        <activity android:name=".LoginActivity"/>
+        <activity android:name=".RegisterActivity"/>
         <activity
             android:name=".HomeActivity"
+            android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ForgotPasswordActivity" />
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".LoginActivity" />
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
