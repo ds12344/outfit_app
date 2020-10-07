@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".seller.SellerRegisterActivity"
-    android:orientation="vertical">
+    tools:context=".seller.EditSellerProfileActivity"
+    android:orientation="vertical"
+    android:background="@color/white">
 
     <RelativeLayout android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
@@ -22,7 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="Seller Register"
+            android:text="Edit Showroom"
             android:textColor="#fff"
             android:textSize="20dp"
             android:layout_centerInParent="true"/>
@@ -40,15 +41,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:padding="20dp">
+            android:padding="20dp"
+            android:background="@color/white">
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_width="120dp"
-                android:layout_height="120dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 android:src="@drawable/logo"
                 android:layout_marginTop="10dp"
-                app:civ_border_color="@color/greyDark"
                 app:civ_border_width="2dp"
+                app:civ_border_color="@color/greyDark"
                 android:layout_gravity="center_horizontal"
                 android:id="@+id/imgShowroom"/>
 
@@ -112,7 +114,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="GST/HST Number"
+                android:text="GST number"
                 android:textSize="18sp"
                 android:textColor="@color/greyDark"
                 android:layout_marginTop="20dp"/>
@@ -145,23 +147,6 @@
                 android:id="@+id/edtShippingPrice"
                 android:maxLines="1"
                 android:inputType="number"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="ID Proof"
-                android:textSize="18sp"
-                android:textColor="@color/greyDark"
-                android:layout_marginTop="20dp"/>
-
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/logo"
-                android:layout_marginTop="5dp"
-                android:id="@+id/imgIdProof"/>
-
-
 
             <Button
                 android:layout_width="match_parent"

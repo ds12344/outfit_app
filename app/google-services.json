@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "296386443634",
-    "firebase_url": "https://outfit2.firebaseio.com",
-    "project_id": "outfit2",
-    "storage_bucket": "outfit2.appspot.com"
+    "project_number": "287690447654",
+    "firebase_url": "https://outfitt-4b691.firebaseio.com",
+    "project_id": "outfitt-4b691",
+    "storage_bucket": "outfitt-4b691.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:296386443634:android:9f3ca5a18371a2d950c5eb",
+        "mobilesdk_app_id": "1:287690447654:android:97cd51d8656c82c04d3fe7",
         "android_client_info": {
           "package_name": "com.outfit.user"
         }
       },
       "oauth_client": [
         {
-          "client_id": "296386443634-dghds6tbp1mht07j87ftde50nr1i2s2l.apps.googleusercontent.com",
+          "client_id": "287690447654-nhnd4f4cj4ajods3tmo21s6c0t4cfqlm.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDReZ1zXEgJg6YwbMyAXB7y4H2XEZaW03U"
+          "current_key": "AIzaSyBYWWlTG1GbGBw5axgWzLRT_RymvyAg8Zk"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "296386443634-dghds6tbp1mht07j87ftde50nr1i2s2l.apps.googleusercontent.com",
+              "client_id": "287690447654-nhnd4f4cj4ajods3tmo21s6c0t4cfqlm.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

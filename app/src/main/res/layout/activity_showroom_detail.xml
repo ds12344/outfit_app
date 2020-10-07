@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".seller.SellerProductDetailActivity"
-    android:orientation="vertical"
-    android:background="@color/white">
+    tools:context=".ShowroomDetailActivity"
+    android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -24,26 +23,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="Product Details"
+            android:text="Showroom"
             android:textColor="#fff"
             android:textSize="20dp"
             android:layout_centerInParent="true"/>
 
-        <ImageView android:layout_width="?actionBarSize"
-            android:layout_height="?actionBarSize"
-            android:src="@drawable/edit"
-            android:layout_gravity="left"
-            android:padding="15dp"
-            android:tint="@color/white"
-            android:id="@+id/edit"
-            android:layout_alignParentRight="true"/>
+
 
     </RelativeLayout>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:fillViewport="true"
+        android:layout_weight="1">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -56,7 +49,7 @@
                 android:layout_height="180dp"
                 android:src="@drawable/logo"
                 android:scaleType="centerCrop"
-                android:id="@+id/imgProduct"/>
+                android:id="@+id/imgShowroom"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -70,7 +63,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Product Name"
+                    android:text="Showroom Name"
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     android:textSize="18sp" />
@@ -82,7 +75,7 @@
                     android:text="Nike"
                     android:textSize="18sp"
                     android:textColor="@color/black"
-                    android:id="@+id/txtProductName"/>
+                    android:id="@+id/txtShowroomName"/>
 
             </LinearLayout>
 
@@ -98,7 +91,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Product Price"
+                    android:text="Showroom Address"
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     android:textSize="18sp" />
@@ -107,10 +100,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="right"
-                    android:text="$300"
+                    android:text="Canada"
                     android:textSize="18sp"
                     android:textColor="@color/black"
-                    android:id="@+id/txtProductPrice"/>
+                    android:id="@+id/txtAddress"/>
 
             </LinearLayout>
 
@@ -126,7 +119,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Type"
+                    android:text="Phone"
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     android:textSize="18sp" />
@@ -135,10 +128,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="right"
-                    android:text="Men"
+                    android:text="+13293400932"
                     android:textSize="18sp"
                     android:textColor="@color/black"
-                    android:id="@+id/txtProductType"/>
+                    android:id="@+id/txtPhone"/>
 
             </LinearLayout>
 
@@ -154,7 +147,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Description"
+                    android:text="GST/HST"
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     android:textSize="18sp" />
@@ -163,16 +156,92 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="right"
-                    android:text="SDSF3323 sfdf sfds sdf sfs sf 24234"
+                    android:text="SDSF324234"
                     android:textSize="18sp"
                     android:textColor="@color/black"
-                    android:layout_marginLeft="40dp"
-                    android:id="@+id/txtProductDescription"/>
+                    android:id="@+id/txtGst"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Shipping Price"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="$30"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:id="@+id/txtShippingPrice"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Status"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="18sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:text="Open"
+                        android:textSize="18sp"
+                        android:textColor="@color/black"
+                        android:id="@+id/txtStatus"
+                        android:layout_weight="1"/>
+
+                </LinearLayout>
+
+
 
             </LinearLayout>
 
         </LinearLayout>
 
     </ScrollView>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Shop"
+        android:layout_margin="20dp"
+        android:background="@drawable/button_bg"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textAllCaps="false"
+        android:id="@+id/btnShop"/>
 
 </LinearLayout>

@@ -16,8 +16,8 @@
             android:src="@drawable/ic_back"
             android:layout_gravity="left"
             android:padding="15dp"
-            android:id="@+id/back"
-            app:tint="@color/white" />
+            android:tint="@color/white"
+            android:id="@+id/back"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -33,9 +33,9 @@
             android:src="@drawable/edit"
             android:layout_gravity="left"
             android:padding="15dp"
+            android:tint="@color/white"
             android:id="@+id/edit"
-            android:layout_alignParentRight="true"
-            app:tint="@color/white" />
+            android:layout_alignParentRight="true"/>
 
     </RelativeLayout>
 
@@ -54,7 +54,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
                 android:src="@drawable/logo"
-                android:scaleType="centerCrop" />
+                android:scaleType="centerCrop"
+                android:id="@+id/imgShowroom"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -79,7 +80,8 @@
                     android:gravity="right"
                     android:text="Nike"
                     android:textSize="18sp"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/black"
+                    android:id="@+id/txtShowroomName"/>
 
             </LinearLayout>
 
@@ -106,7 +108,8 @@
                     android:gravity="right"
                     android:text="Canada"
                     android:textSize="18sp"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/black"
+                    android:id="@+id/txtAddress"/>
 
             </LinearLayout>
 
@@ -133,7 +136,8 @@
                     android:gravity="right"
                     android:text="+13293400932"
                     android:textSize="18sp"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/black"
+                    android:id="@+id/txtPhone"/>
 
             </LinearLayout>
 
@@ -149,7 +153,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="SIN"
+                    android:text="GST/HST"
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     android:textSize="18sp" />
@@ -158,9 +162,82 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="right"
-                    android:text="456456788"
+                    android:text="SDSF324234"
                     android:textSize="18sp"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/black"
+                    android:id="@+id/txtGst"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Shipping Price"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="$30"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:id="@+id/txtShippingPrice"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Status"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="18sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:text="Open"
+                        android:textSize="18sp"
+                        android:textColor="@color/black"
+                        android:id="@+id/txtStatus"
+                        android:layout_weight="1"/>
+
+                    <Switch
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:id="@+id/switchStatus"
+                        />
+                </LinearLayout>
+
+
 
             </LinearLayout>
 
