@@ -14,10 +14,10 @@
         <ImageView android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@drawable/ic_back"
+            android:tint="@color/white"
             android:layout_gravity="left"
             android:padding="10dp"
-            android:id="@+id/back"
-            app:tint="@color/white" />
+            android:id="@+id/back"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -89,7 +89,7 @@
                     android:textSize="16sp"
                     android:id="@+id/txtExpirationDateLabel"/>
 
-                <EditText
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_marginTop="10dp"
@@ -101,7 +101,7 @@
                     android:hint="MM/YY"
                     android:textSize="16sp"
                     android:textColor="@color/black"
-                    android:id="@+id/edtExpirationDate"
+                    android:id="@+id/txtExpirationDate"
                     android:singleLine="true" />
 
 
