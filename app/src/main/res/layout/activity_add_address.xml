@@ -16,8 +16,8 @@
             android:src="@drawable/ic_back"
             android:layout_gravity="left"
             android:padding="15dp"
-            android:id="@+id/back"
-            app:tint="@color/white" />
+            android:tint="@color/white"
+            android:id="@+id/back"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -37,27 +37,66 @@
         <LinearLayout android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:gravity="center_horizontal">
-
+            android:padding="20dp">
             <TextView
-                android:layout_width="250dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="Address"
+                android:text="Name"
                 android:textColor="#000"
                 android:textSize="15dp" />
 
             <EditText
-                android:id="@+id/emailsign"
-                android:layout_width="250dp"
+                android:id="@+id/edtName"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/edt_bg"
                 android:padding="3dp"
                 android:textColor="@android:color/black"
-                android:textSize="20dp" />
+                android:textSize="20dp"
+                android:maxLines="1"/>
+
             <TextView
-                android:layout_width="250dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Mobile Number"
+                android:textColor="#000"
+                android:textSize="15dp" />
+
+            <EditText
+                android:id="@+id/edtMobile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/edt_bg"
+                android:padding="3dp"
+                android:inputType="phone"
+                android:textColor="@android:color/black"
+                android:textSize="20dp"
+                android:maxLines="1"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Address"
+                android:textColor="#000"
+                android:textSize="15dp" />
+
+            <EditText
+                android:id="@+id/edtAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/edt_bg"
+                android:padding="3dp"
+                android:textColor="@android:color/black"
+                android:textSize="20dp"
+                android:maxLines="1"/>
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Street No/Apartment"
                 android:layout_marginTop="15dp"
@@ -66,17 +105,18 @@
                 />
 
             <EditText
-                android:id="@+id/username"
-                android:layout_width="250dp"
+                android:id="@+id/edtStreet"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/edt_bg"
                 android:inputType="text"
                 android:padding="3dp"
-                android:textSize="20dp" />
+                android:textSize="20dp"
+                android:maxLines="1"/>
 
             <TextView
-                android:layout_width="250dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="City"
                 android:layout_marginTop="15dp"
@@ -85,34 +125,36 @@
                 />
 
             <EditText
-                android:id="@+id/dob"
+                android:id="@+id/edtCity"
 
                 android:layout_marginTop="10dp"
-                android:layout_width="250dp"
+                android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:textSize="20dp"
                 android:textColor="@color/black"
-                android:background="@drawable/edt_bg" />
+                android:background="@drawable/edt_bg"
+                android:maxLines="1"/>
             <TextView
-                android:layout_width="250dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="State"
+                android:text="Province"
                 android:layout_marginTop="15dp"
                 android:textSize="15dp"
                 android:textColor="#000"
                 />
 
             <EditText
-                android:id="@+id/editText2"
-                android:layout_width="250dp"
+                android:id="@+id/edtState"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/edt_bg"
                 android:ems="10"
                 android:padding="3dp"
-                android:textSize="20dp" />
+                android:textSize="20dp"
+                android:maxLines="1"/>
             <TextView
-                android:layout_width="250dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Country"
                 android:layout_marginTop="15dp"
@@ -121,37 +163,39 @@
                 />
 
             <EditText
-                android:id="@+id/cpasswordsign"
-                android:layout_width="250dp"
+                android:id="@+id/edtCountry"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/edt_bg"
                 android:padding="3dp"
-                android:textSize="20dp" />
+                android:textSize="20dp"
+                android:maxLines="1"/>
 
             <TextView
-                android:layout_width="250dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Pin Code"
+                android:text="Postal Code"
                 android:layout_marginTop="15dp"
                 android:textSize="15dp"
                 android:textColor="#000"
                 />
 
             <EditText
-                android:id="@+id/pincode"
-                android:layout_width="250dp"
+                android:id="@+id/edtPinCode"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/edt_bg"
                 android:padding="3dp"
                 android:textSize="20dp"
-                android:inputType="number" />
+                android:inputType="number"
+                android:maxLines="1"/>
 
 
             <Button
                 android:id="@+id/btnSave"
-                android:layout_width="250dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:background="@drawable/button_bg"
