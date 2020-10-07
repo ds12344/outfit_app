@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@drawable/list_bg"
+    android:layout_margin="5dp">
 
     <LinearLayout
         android:orientation="horizontal"
@@ -14,13 +16,14 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:src="@drawable/logo"
-            android:id="@+id/imgProduct"/>
+            android:id="@+id/imgProduct"
+            android:scaleType="centerCrop"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:text="Nike Shirt"
+            android:text="Shirt"
             android:textColor="#000"
             android:textSize="17dp"
             android:layout_weight="1"
@@ -78,26 +81,21 @@
 
 
         </LinearLayout>
-        
+
     </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/greyDark" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
+        android:padding="10dp"
         android:text="Remove"
         android:textColor="@android:color/holo_red_dark"
         android:textSize="20dp"
         android:id="@+id/txRemove"
         android:gravity="center"/>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#000"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"/>
-
 </LinearLayout>
