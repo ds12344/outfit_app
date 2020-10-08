@@ -32,7 +32,8 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.nguyenhoanglam.imagepicker.model.Image;
 import com.nguyenhoanglam.imagepicker.ui.imagepicker.ImagePicker;
-import com.outfit.app.R;
+import com.outfit.user.R;
+
 
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;

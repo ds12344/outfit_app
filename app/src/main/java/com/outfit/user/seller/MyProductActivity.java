@@ -16,8 +16,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.outfit.app.R;
-import com.outfit.app.seller.adapter.MyProductAdapter;
+import com.outfit.user.R;
+import com.outfit.user.seller.adapter.MyProductAdapter;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;

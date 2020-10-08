@@ -152,7 +152,7 @@ public class HomeSellerActivity extends AppCompatActivity {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-               
+
                 mDialog.dismiss();
                 if (dataSnapshot.getValue() == null)
                     return;
