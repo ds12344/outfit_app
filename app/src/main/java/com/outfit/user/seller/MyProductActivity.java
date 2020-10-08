@@ -1,11 +1,13 @@
-package com.outfit.app.user.activity;
+package com.outfit.user.seller;
+
+import android.app.ProgressDialog;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.app.ProgressDialog;
-import android.os.Bundle;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -15,38 +17,39 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.outfit.app.R;
-import com.outfit.app.user.adapter.ProductAdapter;
+import com.outfit.app.seller.adapter.MyProductAdapter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class AllProductActivity extends AppCompatActivity {
+public class MyProductActivity extends AppCompatActivity {
 
+    ImageView back;
     RecyclerView rcyProduct;
-    ProductAdapter productAdapter;
-    HashMap data;
-    String type = "", sellerId = "";
+    MyProductAdapter myProductAdapter;
     ArrayList<HashMap> list = new ArrayList<>();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_all_product);
+        setContentView(R.layout.activity_my_product);
 
-        data = (HashMap) getIntent().getSerializableExtra("data");
-        type = getIntent().getStringExtra("type");
-        sellerId = data.get("sellerId").toString();
+        back = findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         rcyProduct = findViewById(R.id.rcyProduct);
-        productAdapter = new ProductAdapter(this);
-        rcyProduct.setAdapter(productAdapter);
+        myProductAdapter = new MyProductAdapter(this);
+        rcyProduct.setAdapter(myProductAdapter);
 
-        getProductList();
-
+        getMyProduct();
     }
 
-    void getProductList() {
+    void getMyProduct() {
         final ProgressDialog mDialog = new ProgressDialog(this);
         mDialog.setMessage("Please wait...");
         mDialog.setCancelable(false);
@@ -54,7 +57,7 @@ public class AllProductActivity extends AppCompatActivity {
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("Product").child(sellerId);
+        DatabaseReference myRef = database.getReference("Product").child(user.getUid());
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -64,16 +67,15 @@ public class AllProductActivity extends AppCompatActivity {
                     return;
                 list.clear();
 
-
                 HashMap chats = (HashMap) dataSnapshot.getValue();
 
                 for (final Object entry : chats.keySet()) {
                     HashMap product = (HashMap) chats.get(entry);
-                    if (product.get("type").toString().equals(type))
-                        list.add(product);
+
+                    list.add(product);
                 }
 
-                productAdapter.updateAdapter(list);
+                myProductAdapter.updateAdapter(list);
             }
 
             @Override
