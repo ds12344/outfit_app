@@ -5,6 +5,8 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class SplashActivity extends AppCompatActivity {
 
     @Override
@@ -20,7 +22,12 @@ public class SplashActivity extends AppCompatActivity {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 } finally {
-                    Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
+                    Intent intent;
+                    if (FirebaseAuth.getInstance().getCurrentUser() != null) {
+                        intent = new Intent(SplashActivity.this, HomeActivity.class);
+                    } else {
+                        intent = new Intent(SplashActivity.this, LoginActivity.class);
+                    }
                     startActivity(intent);
                     finish();
                 }

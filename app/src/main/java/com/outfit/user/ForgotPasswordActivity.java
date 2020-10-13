@@ -23,6 +23,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
     Button btnSubmit;
     ImageView back;
     EditText edtLogin;
+    FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,9 +31,10 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         setContentView(R.layout.activity_forgot_password);
 
         btnSubmit = findViewById(R.id.btnSubmit);
-        edtLogin = findViewById(R.id.edtEmail);
+        edtLogin = findViewById(R.id.edtLoginEmail);
         back = findViewById(R.id.back);
 
+        firebaseAuth = FirebaseAuth.getInstance();
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,17 +62,18 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         mDialog.setCancelable(false);
         mDialog.show();
 
-        FirebaseAuth.getInstance().sendPasswordResetEmail(email)
+        firebaseAuth.sendPasswordResetEmail(email)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
+                        if (task.isSuccessful()){
+                            Toast.makeText(ForgotPasswordActivity.this,"Password send to your email", Toast.LENGTH_LONG).show();
                             mDialog.dismiss();
-                            Toast.makeText(ForgotPasswordActivity.this, "Email sent.", Toast.LENGTH_SHORT).show();
-                            Log.d("Forgot", "Email sent.");
-                            finish();
+                        } else {
+                            Toast.makeText(ForgotPasswordActivity.this,task.getException().getMessage(), Toast.LENGTH_LONG).show();
                         }
                     }
                 });
+
     }
 }
