@@ -31,6 +31,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.nguyenhoanglam.imagepicker.model.Image;
 import com.nguyenhoanglam.imagepicker.ui.imagepicker.ImagePicker;
+import com.outfit.user.HomeActivity;
 import com.outfit.user.R;
 
 import java.io.ByteArrayOutputStream;
@@ -45,7 +46,7 @@ public class SellerRegisterActivity extends AppCompatActivity {
     EditText edtShowroomName, edtShowroomAddress, edtPhone, edtGst, edtShippingPrice;
 
     FirebaseAuth mFirebaseAuth;
-    //Firebase storage
+
     FirebaseStorage firebaseStorage;
     StorageReference storageReference;
     ProgressDialog mDialog;
@@ -74,7 +75,8 @@ public class SellerRegisterActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onBackPressed();
+              Intent intent=new Intent(SellerRegisterActivity.this, HomeActivity.class);
+              startActivity(intent);
             }
         });
 
@@ -158,8 +160,7 @@ public class SellerRegisterActivity extends AppCompatActivity {
                 imageFolder.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {
-                        //Upload this url to avtar property of user
-                        //First you need to add avtar property on user model
+
                         if (!isIdUpload) {
                             showroomImageUrl = uri.toString();
                             isIdUpload = true;
@@ -177,8 +178,7 @@ public class SellerRegisterActivity extends AppCompatActivity {
                     @Override
                     public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
 
-                        /*double progress = (100.0* taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount());
-                        mDialog.setMessage("Uploading " + pos + " : "+progress+"%");*/
+
                     }
                 });
     }
@@ -245,7 +245,7 @@ public class SellerRegisterActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         if (ImagePicker.shouldHandleResult(requestCode, resultCode, data, 101)) {
             ArrayList<Image> images  = ImagePicker.getImages(data);
-            // Do stuff with image's path or id. For example:
+
             for (Image image : images) {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                     showroomImagePath = image.getUri().toString();
@@ -261,7 +261,7 @@ public class SellerRegisterActivity extends AppCompatActivity {
             }
         } else if (ImagePicker.shouldHandleResult(requestCode, resultCode, data, 102)) {
             ArrayList<Image> images  = ImagePicker.getImages(data);
-            // Do stuff with image's path or id. For example:
+
             for (Image image : images) {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                     idProofImagePath = image.getUri().toString();

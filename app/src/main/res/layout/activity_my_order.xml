@@ -35,7 +35,7 @@
         android:layout_height="match_parent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:spanCount="2"
-        tools:listitem="@layout/list_my_order_seller_item"
+        tools:listitem="@layout/list_order_item"
         android:id="@+id/rcyMyOrder"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp" />

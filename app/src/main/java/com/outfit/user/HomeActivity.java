@@ -208,7 +208,7 @@ public class HomeActivity extends AppCompatActivity {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                //Log.e("data", dataSnapshot.toString());
+
                 mDialog.dismiss();
                 if (dataSnapshot.getValue() == null)
                     return;

@@ -8,8 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-
-import com.outfit.app.user.activity.CartActivity;
+import com.outfit.user.CartActivity;
 import com.outfit.user.CartModel;
 import com.outfit.user.ProductModel;
 import com.outfit.user.R;
@@ -85,7 +84,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
                         cartModel.getProductList().get(getAdapterPosition()).setQuantity(k);
                         ShareStorage.setCartData(context, cartModel);
                         ((CartActivity) context).updatePrice();
-                        //notifyDataSetChanged();
+
                     }
                 }
             });
@@ -99,7 +98,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
                     cartModel.getProductList().get(getAdapterPosition()).setQuantity(k);
                     ShareStorage.setCartData(context, cartModel);
                     ((CartActivity) context).updatePrice();
-                    //notifyDataSetChanged();
+
                 }
             });
 
@@ -110,7 +109,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
                     cartModel.getProductList().remove(getAdapterPosition());
                     ShareStorage.setCartData(context, cartModel);
                     ((CartActivity) context).updatePrice();
-                    //notifyDataSetChanged();
+
                 }
             });
 

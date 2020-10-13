@@ -1,87 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+<ScrollView android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity"
-    android:orientation="vertical"
-    android:background="@color/white"
-    android:gravity="center_horizontal"
-    android:padding="20dp">
+    android:fillViewport="true"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <ImageView
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:src="@drawable/logo"
-        android:layout_marginTop="60dp"/>
-
-    <TextView
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Email"
-        android:textSize="18sp"
-        android:textColor="@color/greyDark"
-        android:layout_marginTop="40dp"/>
+        android:layout_height="match_parent"
+        tools:context=".LoginActivity"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:gravity="center_horizontal"
+        android:padding="20dp">
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/edt_bg"
-        android:padding="7dp"
-        android:layout_marginTop="5dp"
-        android:textColor="@color/greyDark"
-        android:id="@+id/edtLoginEmail"
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/logo"
+            android:layout_marginTop="60dp"/>
 
-        android:inputType="textEmailAddress"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:textSize="18sp"
+            android:textColor="@color/greyDark"
+            android:layout_marginTop="40dp"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Password"
-        android:textSize="18sp"
-        android:textColor="@color/greyDark"
-        android:layout_marginTop="20dp"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edt_bg"
+            android:padding="7dp"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/greyDark"
+            android:id="@+id/edtLoginEmail"
+            android:maxLines="1"
+            android:inputType="textEmailAddress"/>
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/edt_bg"
-        android:padding="7dp"
-        android:layout_marginTop="5dp"
-        android:textColor="@color/greyDark"
-        android:id="@+id/edtLoginPassword"
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Password"
+            android:textSize="18sp"
+            android:textColor="@color/greyDark"
+            android:layout_marginTop="20dp"/>
 
-        android:inputType="textPassword"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edt_bg"
+            android:padding="7dp"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/greyDark"
+            android:id="@+id/edtLoginPassword"
+            android:maxLines="1"
+            android:inputType="textPassword"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Forgot Password?"
-        android:textColor="@color/colorPrimary"
-        android:layout_marginTop="20dp"
-        android:gravity="right"
-        android:id="@+id/txtForgotPassword" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Forgot Password?"
+            android:textColor="@color/colorPrimary"
+            android:layout_marginTop="20dp"
+            android:gravity="right"
+            android:id="@+id/txtForgotPassword" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Login"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/button_bg"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        android:textAllCaps="false"
-        android:id="@+id/btnLogin"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/button_bg"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textAllCaps="false"
+            android:id="@+id/btnLogin"/>
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Don\'t have any account? Signup"
-        android:textColor="@color/colorPrimary"
-        android:layout_marginTop="20dp"
-        android:gravity="right"
-        android:id="@+id/txtRegister" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Don\'t have any account? Signup"
+            android:textColor="@color/colorPrimary"
+            android:layout_marginTop="20dp"
+            android:gravity="right"
+            android:id="@+id/txtRegister" />
 
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>
+

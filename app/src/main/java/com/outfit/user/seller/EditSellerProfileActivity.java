@@ -45,7 +45,7 @@ public class EditSellerProfileActivity extends AppCompatActivity {
     String imagePath = "", strName, strAddress, strPhone, strGst, strPrice, imageUrl;
 
     FirebaseAuth mFirebaseAuth;
-    //Firebase storage
+
     FirebaseStorage firebaseStorage;
     StorageReference storageReference;
     ProgressDialog mDialog;
@@ -163,7 +163,7 @@ public class EditSellerProfileActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         if (ImagePicker.shouldHandleResult(requestCode, resultCode, data, 101)) {
             ArrayList<Image> images  = ImagePicker.getImages(data);
-            // Do stuff with image's path or id. For example:
+
             for (Image image : images) {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                     imagePath = image.getUri().toString();
@@ -214,8 +214,7 @@ public class EditSellerProfileActivity extends AppCompatActivity {
                 imageFolder.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {
-                        //Upload this url to avtar property of user
-                        //First you need to add avtar property on user model
+
                         updateUserInfo(userId, uri.toString());
                     }
                 });
@@ -225,8 +224,6 @@ public class EditSellerProfileActivity extends AppCompatActivity {
                     @Override
                     public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
 
-                        /*double progress = (100.0* taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount());
-                        mDialog.setMessage("Uploading " + pos + " : "+progress+"%");*/
                     }
                 });
     }

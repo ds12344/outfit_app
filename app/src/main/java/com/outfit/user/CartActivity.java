@@ -1,9 +1,11 @@
 package com.outfit.user;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -13,8 +15,20 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
+import com.outfit.user.R;
 
 import adapter.CartAdapter;
 
@@ -90,10 +104,8 @@ public class CartActivity extends AppCompatActivity {
                     intent.putExtra("isSelect", true);
                     startActivityForResult(intent, 102);
                 } else {
-                    ShareStorage.clear(CartActivity.this);
-                    Toast.makeText(CartActivity.this, "Order Placed Successfully", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(CartActivity.this, RatingActivity.class);
-                    startActivity(intent);
+
+                    getSellerData(ShareStorage.getCartData(CartActivity.this).getSellerId());
                 }
             }
         });
@@ -108,6 +120,7 @@ public class CartActivity extends AppCompatActivity {
         updatePrice();
     }
 
+    double sum = 0, shipping = 0, grand = 0;
     public void updatePrice() {
         if ((ShareStorage.getCartData(this) == null)) {
             lnrCart.setVisibility(View.GONE);
@@ -116,8 +129,7 @@ public class CartActivity extends AppCompatActivity {
                 lnrCart.setVisibility(View.GONE);
             } else {
                 lnrCart.setVisibility(View.VISIBLE);
-                double sum = 0;
-
+                sum = 0;
                 for (int i=0; i<ShareStorage.getCartData(this).getProductList().size(); i++) {
                     int quantity = ShareStorage.getCartData(this).getProductList().get(i).getQuantity();
                     double price = Double.parseDouble(ShareStorage.getCartData(this).getProductList().get(i).getPrice());
@@ -127,10 +139,10 @@ public class CartActivity extends AppCompatActivity {
                 }
 
                 txtTotalPrice.setText("$"+sum);
-                double shipping = Double.parseDouble(ShareStorage.getCartData(this).getShippingPrice());
+                shipping = Double.parseDouble(ShareStorage.getCartData(this).getShippingPrice());
                 txtShippingCharges.setText("$"+shipping);
 
-                double grand = sum + shipping;
+                grand = sum + shipping;
                 txtGrandTotal.setText("$"+grand);
 
                 cartAdapter.notifyDataSetChanged();
@@ -162,5 +174,125 @@ public class CartActivity extends AppCompatActivity {
 
             btnCheckout.setText("Place Order");
         }
+    }
+
+    private void placeOrder() {
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        final HashMap<String,Object> map = new HashMap<>();
+        CartModel data = ShareStorage.getCartData(this);
+        String orderId = "order_"+ Calendar.getInstance().getTimeInMillis();
+        map.put("orderId", orderId);
+        map.put("sellerId", data.getSellerId());
+        map.put("total", sum);
+        map.put("shippingCharge", shipping);
+        map.put("grand", grand);
+        map.put("shippingAddress", shippingAddressData);
+        map.put("cardData", cardData);
+
+        String item = "";
+        HashMap<String, Object> product = new HashMap<>();
+        for (int i=0; i<data.getProductList().size(); i++) {
+            ProductModel productModel = data.getProductList().get(i);
+            HashMap<String, Object> productData = new HashMap<>();
+            productData.put("productId", productModel.getProductId());
+            productData.put("name", productModel.getName());
+            productData.put("price", productModel.getPrice());
+            productData.put("image", productModel.getImage());
+            productData.put("type", productModel.getType());
+            productData.put("quantity", productModel.getQuantity());
+            product.put(productModel.getProductId(), productData);
+
+            if (item.isEmpty()) {
+                item = productModel.getQuantity() + " x " + productModel.getName();
+            } else {
+                item = item + ", " + productModel.getQuantity() + " x " + productModel.getName();
+            }
+
+        }
+        map.put("product", product);
+        map.put("status", "pending");
+        map.put("userId", user.getUid());
+        map.put("sellerData", sellerData);
+        map.put("userData", userData);
+        map.put("createdAt", Calendar.getInstance().getTimeInMillis());
+        map.put("items", item);
+
+
+        FirebaseDatabase.getInstance().getReference("OrderBuyer")
+                .child(user.getUid())
+                .child(orderId)
+                .setValue(map);
+
+        FirebaseDatabase.getInstance().getReference("OrderSeller")
+                .child(data.getSellerId())
+                .child(orderId)
+                .setValue(map);
+
+
+
+        ShareStorage.clear(CartActivity.this);
+        Toast.makeText(CartActivity.this, "Order Placed Successfully", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(CartActivity.this, RatingActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+        finish();
+    }
+
+    HashMap sellerData = new HashMap();
+    private void getSellerData(final String sellerId) {
+        final ProgressDialog mDialog = new ProgressDialog(CartActivity.this);
+        mDialog.setMessage("Please wait...");
+        mDialog.setCancelable(false);
+        mDialog.show();
+        FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
+        DatabaseReference mDbRef = mDatabase.getReference().child("Seller").child(sellerId);
+
+
+        mDbRef.addValueEventListener(new ValueEventListener(){
+
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot)  {
+                mDialog.dismiss();
+
+                sellerData = (HashMap) dataSnapshot.getValue();
+                getUserData();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                mDialog.dismiss();
+                Toast.makeText(CartActivity.this, databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    HashMap userData = new HashMap();
+    private void getUserData() {
+        final ProgressDialog mDialog = new ProgressDialog(CartActivity.this);
+        mDialog.setMessage("Please wait...");
+        mDialog.setCancelable(false);
+        mDialog.show();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
+        DatabaseReference mDbRef = mDatabase.getReference().child("User").child(user.getUid());
+
+
+        mDbRef.addValueEventListener(new ValueEventListener(){
+
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot)  {
+                mDialog.dismiss();
+
+                userData = (HashMap) dataSnapshot.getValue();
+                placeOrder();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                mDialog.dismiss();
+                Toast.makeText(CartActivity.this, databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

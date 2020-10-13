@@ -16,9 +16,9 @@
             android:layout_width="?actionBarSize"
             android:layout_height="?actionBarSize"
             android:src="@drawable/ic_back"
+            android:tint="@color/white"
             android:padding="15dp"
-            android:id="@+id/back"
-            app:tint="@color/white" />
+            android:id="@+id/back" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -27,6 +27,15 @@
             android:textColor="@color/white"
             android:textSize="22sp"
             android:layout_centerInParent="true" />
+
+        <ImageView android:layout_width="?actionBarSize"
+            android:layout_height="?actionBarSize"
+            android:src="@drawable/ic_cart"
+            android:layout_gravity="left"
+            android:padding="15dp"
+            android:tint="@color/white"
+            android:id="@+id/cart"
+            android:layout_alignParentRight="true"/>
     </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView

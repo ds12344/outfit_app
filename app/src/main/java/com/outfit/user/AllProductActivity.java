@@ -1,11 +1,14 @@
-package com.outfit.app.user.activity;
+package com.outfit.user;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -14,15 +17,17 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.outfit.app.R;
-import com.outfit.app.user.adapter.ProductAdapter;
+import com.outfit.user.R;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import adapter.ProductAdapter;
+
 public class AllProductActivity extends AppCompatActivity {
 
     RecyclerView rcyProduct;
+    ImageView back,cart;
     ProductAdapter productAdapter;
     HashMap data;
     String type = "", sellerId = "";
@@ -38,6 +43,22 @@ public class AllProductActivity extends AppCompatActivity {
         type = getIntent().getStringExtra("type");
         sellerId = data.get("sellerId").toString();
 
+        back=findViewById(R.id.back);
+        cart=findViewById(R.id.cart);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+        cart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(AllProductActivity.this,CartActivity.class);
+                startActivity(intent);
+            }
+        });
         rcyProduct = findViewById(R.id.rcyProduct);
         productAdapter = new ProductAdapter(this);
         rcyProduct.setAdapter(productAdapter);
@@ -58,7 +79,7 @@ public class AllProductActivity extends AppCompatActivity {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                //Log.e("data", dataSnapshot.toString());
+
                 mDialog.dismiss();
                 if (dataSnapshot.getValue() == null)
                     return;

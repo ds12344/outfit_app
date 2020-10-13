@@ -121,7 +121,7 @@ public class MyAccountActivity extends AppCompatActivity {
 
             FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
             DatabaseReference mDbRef = mDatabase.getReference().child("User").child(uid);
-            Log.v("USERID", mDbRef.getKey());
+
 
             mDbRef.addValueEventListener(new ValueEventListener(){
 

@@ -36,7 +36,7 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:paddingStart="15dp"
         android:paddingEnd="15dp"
-        tools:listitem="@layout/list_booking_item"
+        tools:listitem="@layout/list_order_item"
         />
 
 </LinearLayout>

@@ -103,7 +103,7 @@ public class SellerProfileActivity extends AppCompatActivity {
 
             FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
             DatabaseReference mDbRef = mDatabase.getReference().child("Seller").child(uid);
-            Log.v("USERID", mDbRef.getKey());
+
 
             mDbRef.addValueEventListener(new ValueEventListener(){
 
